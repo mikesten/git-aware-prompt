@@ -20,7 +20,7 @@ function find_git_dirty {
     st=$(git status 2>/dev/null | tail -n 1)
     if [[ $st == "" ]]; then
         git_dirty=''
-    elif [[ $st == "nothing to commit (working directory clean)" ]]; then
+    elif [[ $st =~ "nothing to commit" ]]; then
         git_dirty=''
     else
         git_dirty='*'
